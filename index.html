@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mortgage Affordability Calculator — How Much Can I Borrow? | Tabutility</title>
+  <meta name="description" content="Find out how much you can borrow for a mortgage. Based on your income, deposit and outgoings. Works for UK and US mortgages. Free mortgage affordability calculator."/>
+  <link rel="canonical" href="https://mortgage-affordability-calculator.tabutility.com/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://mortgage-affordability-calculator.tabutility.com/"/>
+  <meta property="og:title" content="Mortgage Affordability Calculator — How Much Can I Borrow?"/>
+  <meta property="og:description" content="Find out how much you can borrow for a mortgage based on your income, deposit and outgoings."/>
+  <meta property="og:site_name" content="Tabutility"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>"/>
+  <meta name="theme-color" content="#1a1a2e"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mortgage Affordability Calculator","url":"https://mortgage-affordability-calculator.tabutility.com/","description":"Find out how much you can borrow for a mortgage based on your income, deposit and outgoings.","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"provider":{"@type":"Organization","name":"Tabutility","url":"https://tabutility.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much can I borrow for a mortgage in the UK?","acceptedAnswer":{"@type":"Answer","text":"Most UK lenders will lend 4–4.5x your gross annual salary. Some lenders offer up to 5.5x for high earners or key workers. The exact amount depends on your deposit, credit score, and monthly outgoings."}},{"@type":"Question","name":"What deposit do I need for a mortgage?","acceptedAnswer":{"@type":"Answer","text":"Most UK lenders require a minimum 5–10% deposit. A 20%+ deposit typically unlocks much better interest rates."}},{"@type":"Question","name":"Does the affordability calculator account for joint incomes?","acceptedAnswer":{"@type":"Answer","text":"Yes — you can add a partner's income and the calculator will use the combined total."}}]}</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7039091592734005" crossorigin="anonymous"></script>
+  <script>window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-78VZWJ5B1W';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-78VZWJ5B1W');});</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+    a{color:#4f46e5;text-decoration:none}
+    nav{background:#1a1a2e;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+    .nav-brand{color:#fff;font-size:18px;font-weight:800}
+    .nav-links a{color:rgba(255,255,255,0.8);font-size:14px;margin-left:20px;font-weight:500}
+    .hero{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:40px 20px 32px;text-align:center}
+    .hero h1{font-size:clamp(24px,4vw,38px);font-weight:900;margin:0 0 10px}
+    .hero p{color:rgba(255,255,255,0.75);margin:0;font-size:16px}
+    .wrap{max-width:700px;margin:0 auto;padding:32px 20px 60px}
+    .card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 16px rgba(0,0,0,0.07);margin-bottom:24px;border:1.5px solid #e8ecf2}
+    .card h2{font-size:18px;font-weight:800;margin:0 0 20px}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:520px){.row2{grid-template-columns:1fr}}
+    label{display:block;font-size:13px;font-weight:600;color:#64748b;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px}
+    .prefix-wrap{position:relative;margin-bottom:16px}
+    .prefix{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#64748b;font-weight:700;font-size:17px;pointer-events:none}
+    input[type=number]{width:100%;padding:12px 14px 12px 30px;border:2px solid #e2e8f0;border-radius:10px;font-size:17px;font-weight:700;color:#1e293b;background:#f8fafc;outline:none;transition:border 0.2s}
+    input:focus{border-color:#4f46e5;background:#fff}
+    .multiplier-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .mult-btn{flex:1;min-width:60px;padding:8px;border:2px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer;font-size:14px;font-weight:700;color:#64748b;transition:all 0.15s;text-align:center}
+    .mult-btn.active{border-color:#4f46e5;background:#4f46e5;color:#fff}
+    .result-hero{background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:14px;padding:28px;text-align:center;color:#fff;margin-bottom:20px}
+    .result-max{font-size:clamp(32px,7vw,52px);font-weight:900;line-height:1}
+    .result-sub{font-size:15px;opacity:0.85;margin-top:8px;font-weight:600}
+    .range-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+    .range-box{border-radius:12px;padding:16px;text-align:center}
+    .range-box.low{background:#f0fdf4;border:1.5px solid #bbf7d0}
+    .range-box.high{background:#faf5ff;border:1.5px solid #e9d5ff}
+    .range-num{font-size:22px;font-weight:900;color:#1e293b}
+    .range-label{font-size:12px;color:#64748b;font-weight:600;margin-top:4px}
+    .detail-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e2e8f0;font-size:15px}
+    .detail-row:last-child{border-bottom:none;font-weight:700}
+    .info{background:#eff6ff;border-left:4px solid #3b82f6;border-radius:0 8px 8px 0;padding:12px 16px;font-size:13px;color:#1e40af;margin-top:16px}
+    .ad-wrap{margin:20px 0;text-align:center;min-height:90px;background:#f8fafc;border-radius:8px}
+    footer{background:#1a1a2e;color:rgba(255,255,255,0.6);text-align:center;padding:24px 20px;font-size:14px}
+    footer a{color:#818cf8}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="https://tabutility.com" class="nav-brand">⚡ Tabutility</a>
+  <div class="nav-links">
+    <a href="https://tabutility.com">All Tools</a>
+    <a href="https://tabutility.com/blog/">Blog</a>
+  </div>
+</nav>
+<div class="hero">
+  <h1>🏠 Mortgage Affordability Calculator</h1>
+  <p>Find out how much you can borrow — based on your income and outgoings</p>
+</div>
+<div class="wrap">
+  <div class="card">
+    <h2>Your Income</h2>
+    <div class="row2">
+      <div>
+        <label>Your Annual Salary (gross)</label>
+        <div class="prefix-wrap">
+          <span class="prefix">£</span>
+          <input type="number" id="income1" placeholder="50000" value="50000" oninput="calc()"/>
+        </div>
+      </div>
+      <div>
+        <label>Partner's Salary (optional)</label>
+        <div class="prefix-wrap">
+          <span class="prefix">£</span>
+          <input type="number" id="income2" placeholder="0" value="0" oninput="calc()"/>
+        </div>
+      </div>
+    </div>
+    <label>Income Multiplier (lender varies)</label>
+    <div class="multiplier-row">
+      <button class="mult-btn" onclick="setMult(3.5,this)">3.5×</button>
+      <button class="mult-btn" onclick="setMult(4,this)">4×</button>
+      <button class="mult-btn active" onclick="setMult(4.5,this)">4.5×</button>
+      <button class="mult-btn" onclick="setMult(5,this)">5×</button>
+      <button class="mult-btn" onclick="setMult(5.5,this)">5.5×</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Deposit & Outgoings</h2>
+    <div class="row2">
+      <div>
+        <label>Your Deposit</label>
+        <div class="prefix-wrap">
+          <span class="prefix">£</span>
+          <input type="number" id="deposit" placeholder="50000" value="50000" oninput="calc()"/>
+        </div>
+      </div>
+      <div>
+        <label>Monthly Outgoings</label>
+        <div class="prefix-wrap">
+          <span class="prefix">£</span>
+          <input type="number" id="outgoings" placeholder="500" value="500" oninput="calc()"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="result-card" style="display:none">
+    <div class="result-hero">
+      <div class="result-max">£<span id="r-max">—</span></div>
+      <div class="result-sub">Maximum mortgage amount</div>
+    </div>
+    <div class="range-grid">
+      <div class="range-box low"><div class="range-num">£<span id="r-low">—</span></div><div class="range-label">Conservative (3.5×)</div></div>
+      <div class="range-box high"><div class="range-num">£<span id="r-high">—</span></div><div class="range-label">Maximum (5.5×)</div></div>
+    </div>
+    <div class="detail-row"><span>Total income</span><span id="d-income">—</span></div>
+    <div class="detail-row"><span>Mortgage borrowing (<span id="d-mult">4.5</span>×)</span><span id="d-borrow">—</span></div>
+    <div class="detail-row"><span>Deposit</span><span id="d-deposit">—</span></div>
+    <div class="detail-row"><span>Maximum property price</span><span id="d-price">—</span></div>
+    <div class="detail-row"><span>Loan-to-Value (LTV)</span><span id="d-ltv">—</span></div>
+    <div class="info">ℹ️ These figures are estimates based on income multiples. Actual amounts depend on your credit score, monthly outgoings, and individual lender criteria. Always speak to a mortgage adviser for a formal decision.</div>
+  </div>
+
+  <div class="ad-wrap">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+</div>
+<footer>
+  <p>© 2025 <a href="https://tabutility.com">Tabutility</a> — Free Online Tools</p>
+</footer>
+<script>
+  let multiplier=4.5;
+  function setMult(m,el){
+    multiplier=m;
+    document.querySelectorAll('.mult-btn').forEach(b=>b.classList.remove('active'));
+    el.classList.add('active');
+    calc();
+  }
+  function fmtK(n){return n>=1000?(n/1000).toFixed(0)+'k':n.toLocaleString();}
+  function fmtFull(n){return '£'+n.toLocaleString('en-GB');}
+
+  function calc(){
+    const i1=parseFloat(document.getElementById('income1').value)||0;
+    const i2=parseFloat(document.getElementById('income2').value)||0;
+    const dep=parseFloat(document.getElementById('deposit').value)||0;
+    const totalIncome=i1+i2;
+    if(!totalIncome){document.getElementById('result-card').style.display='none';return;}
+
+    const borrow=Math.round(totalIncome*multiplier);
+    const maxPrice=borrow+dep;
+    const ltv=maxPrice>0?Math.round((borrow/maxPrice)*100):0;
+    const low=Math.round(totalIncome*3.5);
+    const high=Math.round(totalIncome*5.5);
+
+    document.getElementById('r-max').textContent=(borrow/1000).toFixed(0)+'k';
+    document.getElementById('r-low').textContent=fmtK(low);
+    document.getElementById('r-high').textContent=fmtK(high);
+    document.getElementById('d-income').textContent=fmtFull(totalIncome);
+    document.getElementById('d-mult').textContent=multiplier;
+    document.getElementById('d-borrow').textContent=fmtFull(borrow);
+    document.getElementById('d-deposit').textContent=fmtFull(dep);
+    document.getElementById('d-price').textContent=fmtFull(maxPrice);
+    document.getElementById('d-ltv').textContent=ltv+'%';
+    document.getElementById('result-card').style.display='block';
+  }
+  calc();
+</script>
+</body>
+</html>
