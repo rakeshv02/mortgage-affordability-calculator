@@ -4,12 +4,12 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mortgage Affordability Calculator — How Much Can I Borrow? | Tabutility</title>
-  <meta name="description" content="Find out how much you can borrow for a mortgage. Based on your income, deposit and outgoings. Works for UK and US mortgages. Free mortgage affordability calculator."/>
+  <meta name="description" content="UK-style income-multiple mortgage borrowing estimate. Enter gross income, deposit and an illustrative multiplier. Not a lender affordability decision."/>
   <link rel="canonical" href="https://mortgage-affordability-calculator.tabutility.com/"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://mortgage-affordability-calculator.tabutility.com/"/>
   <meta property="og:title" content="Mortgage Affordability Calculator — How Much Can I Borrow?"/>
-  <meta property="og:description" content="Find out how much you can borrow for a mortgage based on your income, deposit and outgoings."/>
+  <meta property="og:description" content="Mortgage borrowing estimate based on income and deposit, not an assessment of outgoings or creditworthiness."/>
   <meta property="og:site_name" content="Tabutility"/>
 <meta property="og:image" content="https://mortgage-affordability-calculator.tabutility.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
@@ -19,7 +19,7 @@
   <meta name="robots" content="index, follow"/>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>"/>
   <meta name="theme-color" content="#1a1a2e"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mortgage Affordability Calculator","url":"https://mortgage-affordability-calculator.tabutility.com/","description":"Find out how much you can borrow for a mortgage based on your income, deposit and outgoings.","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"provider":{"@type":"Organization","name":"Tabutility","url":"https://tabutility.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Mortgage Affordability Calculator","url":"https://mortgage-affordability-calculator.tabutility.com/","description":"An illustrative income-multiple mortgage borrowing estimate, not a lender affordability assessment.","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"provider":{"@type":"Organization","name":"Tabutility","url":"https://tabutility.com"}}</script>
   
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7039091592734005" crossorigin="anonymous"></script>
   <script>window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-78VZWJ5B1W';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-78VZWJ5B1W');});</script>
@@ -68,6 +68,7 @@
 nav .brand{color:#fff}
 nav a:hover{color:#818cf8}
 input:focus,select:focus,textarea:focus{border-color:#818cf8!important}
+input[type="number"],select,button{min-height:44px;box-sizing:border-box}
 </style>
 <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
 <link rel="dns-prefetch" href="//www.googletagmanager.com">
@@ -84,7 +85,7 @@ input:focus,select:focus,textarea:focus{border-color:#818cf8!important}
 <div class="hub-link" style="max-width:900px;margin:12px auto 0;padding:0 16px"><a href="https://tabutility.com/uk-tax/" style="color:#4f46e5;text-decoration:none;font-size:14px">← All UK Tax Calculators</a></div>
 <div class="hero">
   <h1>🏠 Mortgage Affordability Calculator</h1>
-  <p>Find out how much you can borrow — based on your income and outgoings</p>
+  <p>Estimate borrowing using a selected income multiple, not a lender's affordability assessment</p>
 </div>
 <div class="wrap">
   <div class="card">
@@ -116,7 +117,7 @@ input:focus,select:focus,textarea:focus{border-color:#818cf8!important}
   </div>
 
   <div class="card">
-    <h2>Deposit & Outgoings</h2>
+    <h2>Deposit</h2>
     <div class="row2">
       <div>
         <label>Your Deposit</label>
@@ -126,15 +127,12 @@ input:focus,select:focus,textarea:focus{border-color:#818cf8!important}
         </div>
       </div>
       <div>
-        <label>Monthly Outgoings</label>
-        <div class="prefix-wrap">
-          <span class="prefix">£</span>
-          <input type="number" id="outgoings" placeholder="500" value="500" oninput="calc()"/>
-        </div>
+        <p>This is an income-multiple estimate, not a full affordability assessment. Outgoings, credit history and lender stress tests are not calculated.</p>
       </div>
     </div>
   </div>
 
+  <p id="input-error" role="alert" hidden>Enter non-negative incomes and deposit, with at least one positive income.</p>
   <div class="card" id="result-card" style="display:none">
     <div class="result-hero">
       <div class="result-max">£<span id="r-max">—</span></div>
@@ -165,7 +163,7 @@ input:focus,select:focus,textarea:focus{border-color:#818cf8!important}
     @media(prefers-color-scheme:dark){#seo-content{color:#cbd5e1}#seo-content h2,#seo-content h3{color:#f1f5f9}#seo-content .example{background:#1e293b;border-color:#334155}}
   </style>
   <h2>How to Use the Mortgage Affordability Calculator</h2>
-  <p>The Mortgage Affordability Calculator estimates how much you can borrow for a home purchase based on your income and the size of your deposit. Enter your annual gross income (and a partner's income if buying jointly), your saved deposit, the mortgage term in years, and the interest rate you expect to pay. The calculator applies standard affordability multiples used by UK lenders — typically 4 to 4.5 times single income or combined income — to give you an indicative maximum loan amount. It then adds your deposit to show the total property price you could potentially afford.</p>
+  <p>The Mortgage Affordability Calculator multiplies annual gross income, including a partner's income if applicable, by the selected income multiple. It adds your deposit to estimate a property budget. This is an illustrative UK-style income-multiple calculation only. It does not calculate interest, a mortgage term, outgoings, credit commitments or a lender's affordability decision.</p>
   <p>UK mortgage lenders assess affordability in two ways: income multiples and a full affordability assessment. The income multiple approach, which this calculator uses, is a quick rule-of-thumb — most high-street lenders will lend up to 4.5 times your annual gross income, and some specialist lenders go up to 5 or 5.5 times for high earners or professionals. The full affordability assessment goes further, looking at your monthly outgoings, existing debts, credit commitments, number of dependants, and stress-testing your ability to repay if interest rates rise by two or three percentage points. This calculator gives you a realistic starting range so you can begin your property search with realistic expectations before speaking to a mortgage broker.</p>
   <p>Your deposit has a direct impact on both how much you can borrow and the interest rate you are offered. A larger deposit means a lower loan-to-value (LTV) ratio, which typically unlocks lower interest rates because the lender takes on less risk. For example, a 10% deposit puts you at a 90% LTV and usually means paying a higher rate, while a 25% deposit at 75% LTV generally attracts the most competitive rates on the market. If you are close to a lower LTV threshold — say, 82% — it may be worth saving a little more to cross the 80% LTV boundary and access better deals.</p>
 
@@ -196,7 +194,7 @@ input:focus,select:focus,textarea:focus{border-color:#818cf8!important}
 
 <footer style="background:#1a1a2e;margin-top:48px;padding:28px 24px;text-align:center;font-family:'Segoe UI',system-ui,Arial,sans-serif;font-size:13px;color:#94a3b8;line-height:1.8">
 <div style="font-weight:700;color:#fff;font-size:15px">⚡ Tabutility</div>
-<div>Free, private, browser-based tools. No sign-up, no tracking.</div>
+<div>Free, browser-based tools. No sign-up. Advertising and analytics are explained in our privacy policy.</div>
 <div style="margin-top:6px"><a href="https://tabutility.com" style="color:#818cf8;font-weight:600;text-decoration:none">All Tools</a> · <a href="https://tabutility.com/blog/" style="color:#94a3b8;text-decoration:none">Blog</a> · <a href="https://tabutility.com/about/" style="color:#94a3b8;text-decoration:none">About</a> · <a href="https://tabutility.com/privacy-policy/" style="color:#94a3b8;text-decoration:none">Privacy</a> · <a href="https://tabutility.com/contact/" style="color:#94a3b8;text-decoration:none">Contact</a></div>
 <div style="margin-top:6px;color:#64748b">© 2026 Tabutility</div>
 </footer>
@@ -216,7 +214,9 @@ input:focus,select:focus,textarea:focus{border-color:#818cf8!important}
     const i2=parseFloat(document.getElementById('income2').value)||0;
     const dep=parseFloat(document.getElementById('deposit').value)||0;
     const totalIncome=i1+i2;
-    if(!totalIncome){document.getElementById('result-card').style.display='none';return;}
+    const invalid = ![i1,i2,dep].every(Number.isFinite) || i1 < 0 || i2 < 0 || dep < 0 || totalIncome <= 0;
+    document.getElementById('input-error').hidden=!invalid;
+    if(invalid){document.getElementById('result-card').style.display='none';return;}
 
     const borrow=Math.round(totalIncome*multiplier);
     const maxPrice=borrow+dep;
@@ -272,7 +272,7 @@ input:focus,select:focus,textarea:focus{border-color:#818cf8!important}
 <aside id="related-guide" style="max-width:720px;margin:20px auto;padding:16px 20px;background:#172554;border:1px solid #3730a3;border-radius:12px;color:#c7d2fe;font:14px/1.6 system-ui,sans-serif"><strong>Related Tabutility guide:</strong> <a href="https://tabutility.com/blog/mortgage-affordability-uk-salary/" style="color:#a5b4fc;font-weight:700">Read the mortgage affordability analysis →</a></aside>
 <section id="editorial-methodology" style="max-width:720px;margin:28px auto;padding:20px;background:#111827;border:1px solid #334155;border-radius:12px;color:#cbd5e1;line-height:1.65">
   <h2 style="margin:0 0 10px;color:#f8fafc;font-size:20px">Affordability methodology</h2>
-  <p style="margin:0 0 10px">The estimate combines the entered income, deposit, interest rate and term. Lender affordability tests, taxes, insurance, debts and local rules can change the amount available. Results are planning estimates only.</p>
+  <p style="margin:0 0 10px">Gross income is multiplied by the selected multiple, then the deposit is added for a property budget. Interest, loan term, outgoings and lender affordability checks are not calculated. Credit history, debts, taxes and lender-specific rules can change the amount available.</p>
   <p style="margin:0;font-size:14px"><strong>Primary source:</strong> <a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank" rel="noopener" style="color:#a5b4fc">Consumer Financial Protection Bureau home-buying resources</a></p>
   <p style="margin:8px 0 0;font-size:13px;color:#94a3b8">Source and methodology checked 8 September 2026.</p><p style="margin:8px 0 0;font-size:13px"><a href="https://tabutility.com/about/" style="color:#a5b4fc">About</a> · <a href="https://tabutility.com/privacy-policy/" style="color:#a5b4fc">Privacy</a> · <a href="https://tabutility.com/contact/" style="color:#a5b4fc">Report a correction</a> · <a href="https://tabutility.com/terms/" style="color:#a5b4fc">Terms</a></p>
 </section>
